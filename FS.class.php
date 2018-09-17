@@ -42,4 +42,34 @@ class FS
   {
     return static::separator() . static::rmLeadingSeparator($pname);
   }
+  
+  public static function isFile($fname)
+  {
+    return is_file($fname);
+  }
+  
+  public static function isReadableFile($fname)
+  {
+    return static::isFile($fname) && is_readable($fname);
+  }
+  
+  public static function isWritableFile($fname)
+  {
+    return static::isFile($fname) && is_writable($fname);
+  }
+  
+  public static function isDirectory($dname)
+  {
+    return is_dir($dname);
+  }
+  
+  public static function isReadableDirectory($dname)
+  {
+    return static::isDirectory($dname) && is_readable($dname);
+  }
+  
+  public static function isWritableDirectory($dname)
+  {
+    return static::isDirectory($dname) && is_writable($dname);
+  }
 }
