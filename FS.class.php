@@ -43,6 +43,16 @@ class FS
     return static::separator() . static::rmLeadingSeparator($pname);
   }
   
+  public static function checkFileExtension($fname, $fextension)
+  {
+    if (!empty($fextension) &&
+        (strtolower(substr($fname, -1 * strlen($fextension))) != strtolower($fextension))) {
+      return $fname . '.' . ltrim($fextension, '.');
+    }
+    
+    return $fname;
+  }
+  
   public static function isFile($fname)
   {
     return is_file($fname);
